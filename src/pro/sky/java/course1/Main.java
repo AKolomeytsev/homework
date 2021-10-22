@@ -72,7 +72,7 @@ public class Main {
         //work 7
         //int tmpValue = 0;
         System.out.println(Arrays.toString(startArr));
-        for (int i = 0; i < startArr.length && i!= (startArr.length-1) - i; i++) {
+        for (int i = 0; i < startArr.length / 2; i++) {
             int tmpValue = startArr[i];
             startArr[i] = startArr[(startArr.length-1)-i];
             startArr[(startArr.length-1)-i] = tmpValue;
