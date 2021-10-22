@@ -84,7 +84,7 @@ public class Main {
         boolean stop = false;
         for (int i = 0; i < nArr.length && !stop; i++) {
             int tmpValue = nArr[i];
-            for (int i1 = i+1; i1 < nArr.length; i1++) {
+            for (int j = i+1; j < nArr.length; j++) {
                 if(tmpValue+nArr[i1] == -2) {
                     System.out.println(tmpValue + "+" + nArr[i1] + "=-2");
                     stop = true;
