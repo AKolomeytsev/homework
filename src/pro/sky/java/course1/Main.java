@@ -5,108 +5,81 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        int[] arr = generateRandomArray();
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
-        }
         // work 1
-        int total = 0;
-        for(int i=0;i<arr.length;i++){
-            total = total + arr[i];
-        }
-        System.out.println("Сумма трат за месяц составила " + total + " рублей");
-
-        // work 2
-        int maxSum = arr[0];
-        int minSum = arr[0];
-        for(int i=1;i<arr.length;i++){
-            if(arr[i]>maxSum)
-                maxSum = arr[i];
-            else if(arr[i]<minSum)
-                    minSum = arr[i];
-        }
-
-        System.out.println("Минимальная сумма трат за день составила " + minSum + " рублей");
-        System.out.println("Максимальная сумма трат за день составила " + maxSum + " рублей");
-
-        // work 3
-        double argSum = total/arr.length;
-        System.out.println("Средняя сумма трат за месяц составила " + argSum + " рублей");
-
-        // work 4
-
-        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-        int newIndex = 0;
-        for(int i=1;i<reverseFullName.length+1;i++){
-            newIndex = reverseFullName.length-i;
-            //System.out.print(newIndex);
-            System.out.print(reverseFullName[newIndex]);
-        }
+        String firstName = "Артём";
+        String middleName = "Сергеевич";
+        String lastName = "Коломейцев";
+        String fullName = lastName + " " + firstName + " " + middleName;
+        System.out.println("ФИО сотрудника — " + fullName);
         System.out.println();
+
+        //work 2
+        System.out.println("Данные ФИО сотрудника для заполнения отчета — " + fullName.toUpperCase());
         System.out.println();
+
+        //work 3
+        System.out.println("Данные ФИО сотрудника для административного отдела — " + fullName.replace(" ","; "));
+        System.out.println();
+
+        //work 4
+        if(fullName.contains("ё"))
+            fullName = fullName.replace("ё","е");
+        System.out.println("Данные ФИО сотрудника — " + fullName);
+        System.out.println();
+
         //work 5
+        fullName = fullName.trim();
+        boolean goodString = fullName.indexOf(" ")>-1 && fullName.lastIndexOf(" ")>-1 && fullName.indexOf(" ")!=fullName.lastIndexOf(" ");
+        if(goodString){
+            lastName =  fullName.substring(0,fullName.indexOf(" "));
+            firstName = fullName.substring(fullName.indexOf(" ")+1,fullName.lastIndexOf(" "));
+            middleName = fullName.substring(fullName.lastIndexOf(" ")+1);
 
-        int[][] matrixArr = new int[3][3];
+            System.out.println("Имя сотрудника — " + firstName);
+            System.out.println("Фамилия сотрудника — " + lastName);
+            System.out.println("Отчество сотрудника — " + middleName);
 
-        for (int i = 0; i < matrixArr.length; i++) {
-            matrixArr[i][i] = 1;
-            matrixArr[i][(matrixArr.length-1)-i] = 1;
-        }
-
-        for (int[] row : matrixArr) {
-            for (int column : row) {
-                System.out.print(column + " ");
-            }
-            System.out.println();
+        } else {
+            System.out.println("Строка задана не верно");
         }
         System.out.println();
-        // work 6
-        int[] startArr = {5, 4, 3, 2, 1};
-        int[] endArr = new int[5];
-        for (int i = 0; i < startArr.length; i++) {
-            endArr[i] = startArr[(startArr.length-1)-i];
+
+        //work 6
+        fullName = lastName.toLowerCase() + " " + firstName.toLowerCase() + " " + middleName.toLowerCase();
+        goodString = fullName.indexOf(" ")>-1 && fullName.lastIndexOf(" ")>-1 && fullName.indexOf(" ")!=fullName.lastIndexOf(" ");
+        if(goodString){
+            char[] arrayFullName = fullName.toCharArray();
+            int indexName = fullName.indexOf(" ")+1;
+            int indexMiddleName = fullName.lastIndexOf(" ")+1;
+            String newfullName = String.valueOf(arrayFullName[0]).toUpperCase() + fullName.substring(1,fullName.indexOf(" "));
+            newfullName = newfullName + " "  + String.valueOf(arrayFullName[indexName]).toUpperCase() + fullName.substring(fullName.indexOf(" ")+2,fullName.lastIndexOf(" "));
+            newfullName = newfullName + " "  + String.valueOf(arrayFullName[indexMiddleName]).toUpperCase() + fullName.substring(fullName.lastIndexOf(" ")+2);
+            fullName = newfullName;
+            System.out.println("Верное написание Ф. И. О. сотрудника с заглавных букв —  " + fullName);
+        } else {
+            System.out.println("Строка задана не верно");
         }
-        System.out.println(Arrays.toString(startArr));
-        System.out.println(Arrays.toString(endArr));
         System.out.println();
+
         //work 7
-        //int tmpValue = 0;
-        System.out.println(Arrays.toString(startArr));
-        for (int i = 0; i < startArr.length && i!= (startArr.length-1) - i; i++) {
-            int tmpValue = startArr[i];
-            startArr[i] = startArr[(startArr.length-1)-i];
-            startArr[(startArr.length-1)-i] = tmpValue;
+        StringBuilder firstStr = new StringBuilder("135");
+        StringBuilder secondStr = new StringBuilder("246");
+        String newString = "";
+        for(int i=0;i<firstStr.length();i++){
+            newString = newString + String.valueOf(firstStr.charAt(i)) + String.valueOf(secondStr.charAt(i));
         }
-        System.out.println(Arrays.toString(startArr));
-        System.out.println();
-        //work 8 
-        int[] nArr = {-6,2,5,-8,8,10,4,-7,12,1};
-        boolean stop = false;
-        for (int i = 0; i < nArr.length && !stop; i++) {
-            int tmpValue = nArr[i];
-            for (int i1 = i+1; i1 < nArr.length; i1++) {
-                if(tmpValue+nArr[i1] == -2) {
-                    System.out.println(tmpValue + "+" + nArr[i1] + "=-2");
-                    stop = true;
-                }
+        System.out.println(newString);
+
+        //work 8
+        String str = "aabccddefgghiijjkk";
+        String newStr = "";
+        for(int i=0;i<str.length();i++){
+            if(str.charAt(i) == str.charAt(i+1)){
+                newStr = newStr + String.valueOf(str.charAt(i));
+                i++;
             }
         }
-        System.out.println();
-        //work 9
-        for (int i = 0; i < nArr.length; i++) {
-            int tmpValue = nArr[i];
-            for (int i1 = i+1; i1 < nArr.length; i1++) {
-                if(tmpValue+nArr[i1] == -2)
-                    System.out.println(tmpValue + "+" + nArr[i1] + "=-2");
-            }
-        }
-    }
-    public static int[] generateRandomArray() {
-        java.util.Random random = new java.util.Random();
-        int[] arr = new int[30];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(100_000) + 100_000;
-        }
-        return arr;
+        System.out.println(newStr);
+
     }
 }
