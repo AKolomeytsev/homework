@@ -1,5 +1,7 @@
 package pro.sky.java.course1;
 
+import java.util.Arrays;
+
 public class Library {
     private Book[] books;
     public Library(int size){
@@ -48,5 +50,12 @@ public class Library {
         if (!flag) {
             System.out.println("Книга не найдена!");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Library{" +
+                "books=" + Arrays.toString(books) +
+                '}';
     }
 }
