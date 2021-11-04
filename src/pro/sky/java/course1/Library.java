@@ -20,33 +20,32 @@ public class Library {
             i++;
         }
     }
+    public void findBook(String n){
+        int i = 0;
+        while (i < this.books.length) {
+            // сделал через if, так как в массиве ячейка 3 может быть null, а ячейка 4 не null
+            if (books[i] != null){
+                if (this.books[i].getBookName().trim().toUpperCase().equals(n.trim().toUpperCase())) {
+                    System.out.println(this.books[i].author.getSurname() + " " + this.books[i].author.getName() + ": " + this.books[i].getBookName() + ": " + this.books[i].getYearPublication());
+                    return;
+                }
+            }
+            i++;
+        }
+        System.out.println("Книга не найдена!");
 
-    public void findPrintBook(String n){
-        int i = 0;
-        Boolean flag = false;
-        while (i < this.books.length && !flag) {
-            if(this.books[i].getBookName().trim().toUpperCase().equals(n.trim().toUpperCase())) {
-                System.out.println(this.books[i].author.getSurname() + " " + this.books[i].author.getName() + ": " + this.books[i].getBookName() + ": " + this.books[i].getYearPublication());
-                flag = true;
-            }
-            i++;
-        }
-        if (!flag) {
-            System.out.println("Книга не найдена!");
-        }
     }
-    public void setYearFindBook(String n,int y){
+    public void setBookPublishingYearByName(String n,int y){
         int i = 0;
-        Boolean flag = false;
-        while (i < this.books.length && !flag) {
-            if(this.books[i].getBookName().trim().toUpperCase().equals(n.trim().toUpperCase())) {
-                this.books[i].setYearPublication(y);
-                flag = true;
+        while (i < this.books.length) {
+            if (books[i] != null){
+                if (this.books[i].getBookName().trim().toUpperCase().equals(n.trim().toUpperCase())) {
+                    this.books[i].setYearPublication(y);
+                    return;
+                }
             }
             i++;
         }
-        if (!flag) {
-            System.out.println("Книга не найдена!");
-        }
+        System.out.println("Книга не найдена!");
     }
 }
