@@ -15,11 +15,11 @@ public class Main {
 
 
         ServiceStation station = new ServiceStation();
-        station.check((Car) car, null, null);
-        station.check((Car) car2, null, null);
-        station.check(null, (Bicycle) bicycle, null);
-        station.check(null, (Bicycle) bicycle2, null);
-        station.check(null, null, truck);
-        station.check(null, null, truck2);
+        station.check((Car) car);
+        station.check((Car) car2);
+        station.check((Bicycle) bicycle);
+        station.check((Bicycle) bicycle2);
+        station.check(truck);
+        station.check(truck2);
     }
 }

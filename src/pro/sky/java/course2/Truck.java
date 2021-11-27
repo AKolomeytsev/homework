@@ -1,6 +1,6 @@
 package pro.sky.java.course2;
 
-public class Truck extends Transport implements MethodsTransport{
+public class Truck extends Transport {
     public Truck(String name,int cnt){
         super(name,cnt);
     }
