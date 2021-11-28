@@ -5,7 +5,8 @@ public class Bicycle extends Transport{
         super(name,cnt);
     }
     @Override
-    public void checkEngine() {
-
+    public void service() {
+        System.out.println("Обслуживаем " + this.getModelName());
+        this.updateTyre();
     }
 }

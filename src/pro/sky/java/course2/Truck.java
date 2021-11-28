@@ -8,4 +8,11 @@ public class Truck extends Transport {
     public void checkTrailer() {
         System.out.println("Проверяем прицеп");
     }
+    @Override
+    public void service() {
+        System.out.println("Обслуживаем " + this.getModelName());
+        this.updateTyre();
+        this.checkEngine();
+        this.checkTrailer();
+    }
 }

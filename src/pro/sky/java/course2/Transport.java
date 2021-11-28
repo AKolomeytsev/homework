@@ -23,7 +23,9 @@ public abstract  class Transport implements MethodsTransport {
         return this.wheelsCount;
     }
     public void updateTyre() {
-        System.out.println("Меняем покрышку");
+        for (int i = 0; i < this.getWheelsCount(); i++) {
+            System.out.println("Меняем покрышку");
+        }
     }
     public void checkEngine() {
         System.out.println("Проверяем двигатель");

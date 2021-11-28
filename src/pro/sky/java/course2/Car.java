@@ -5,4 +5,10 @@ public class Car extends Transport{
         super(name,cnt);
     }
 
+    @Override
+    public void service() {
+        System.out.println("Обслуживаем " + this.getModelName());
+        this.updateTyre();
+        this.checkEngine();
+    }
 }
